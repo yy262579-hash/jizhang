@@ -26,13 +26,13 @@ jobs:
         with:
           python-version: "3.12"
       - name: Restore icons
-        run: python icons/decode_icons.py
+        run: python icons/make_ci_icons.py
       - name: Pack site
         run: |
           mkdir dist
           cp index.html styles.css app-a.js app-b.js sw.js manifest.webmanifest dist/
-          cp -r icons dist/icons
-          rm -f dist/icons/*.py dist/icons/*.b64
+          mkdir dist/icons
+          cp icons/icon-192.png icons/icon-512.png icons/icon-maskable-192.png icons/icon-maskable-512.png icons/apple-touch-icon.png dist/icons/
           touch dist/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
