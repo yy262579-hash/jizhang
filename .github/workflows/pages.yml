@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -35,6 +35,8 @@ jobs:
           cp icons/icon-192.png icons/icon-512.png icons/icon-maskable-192.png icons/icon-maskable-512.png icons/apple-touch-icon.png dist/icons/
           touch dist/.nojekyll
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
