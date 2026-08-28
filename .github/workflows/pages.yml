@@ -30,7 +30,7 @@ jobs:
       - name: Pack site
         run: |
           mkdir dist
-          cp index.html styles.css app.js sw.js manifest.webmanifest dist/
+          cp index.html styles.css app-a.js app-b.js sw.js manifest.webmanifest dist/
           cp -r icons dist/icons
           rm -f dist/icons/*.py dist/icons/*.b64
           touch dist/.nojekyll
